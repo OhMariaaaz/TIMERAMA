@@ -1,0 +1,30 @@
+
+CREATE TABLE Timer(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30) NOT NULL,
+    dateTimer DATE NOT NULL,
+    programatedTime TIME NOT NULL,
+    totalTime TIME
+)
+
+DROP TABLE Timer
+SELECT * FROM Timer
+
+CREATE TABLE Tags(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL
+)
+
+DROP TABLE Tags
+SELECT * FROM Tags
+
+CREATE TABLE Timer_tags(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    tagId INT NOT NULL,
+    timerId INT NOT NULL,
+    FOREIGN KEY (tagId) REFERENCES Tags(id),
+    FOREIGN KEY (timerId) REFERENCES Timer(id)
+)
+
+DROP TABLE Timer_tags
+SELECT * FROM Timer_tags
